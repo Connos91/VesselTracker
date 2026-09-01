@@ -1,0 +1,92 @@
+.vessel-marker {
+  background: transparent;
+  border: none;
+}
+.map.leaflet-container {
+  background: var(--map-void);
+}
+.map .leaflet-tile-pane {
+  filter: var(--tile-filter);
+}
+.map .leaflet-bar a,
+.map.leaflet-container .leaflet-control-attribution {
+  background: var(--panel);
+  color: var(--ink);
+}
+.map .leaflet-bar a {
+  border-bottom-color: var(--line);
+}
+.map .leaflet-bar a:hover,
+.map .leaflet-bar a:focus {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.map .leaflet-control-attribution a {
+  color: var(--accent);
+}
+.track-route {
+  fill: none;
+  stroke: var(--track);
+  stroke-width: 2;
+  stroke-dasharray: 5 6;
+  opacity: 0.55;
+}
+.track-run {
+  fill: none;
+  stroke: var(--track);
+  stroke-width: 4;
+  opacity: 0.9;
+}
+.track-departure {
+  fill: var(--ink);
+  stroke: var(--panel);
+  stroke-width: 2.5;
+  fill-opacity: 1;
+}
+.vessel-cargo {
+  --track: var(--vessel-cargo);
+}
+.vessel-tanker {
+  --track: var(--vessel-tanker);
+}
+.vessel-passenger {
+  --track: var(--vessel-passenger);
+}
+.vessel-tug {
+  --track: var(--vessel-tug);
+}
+.vessel-fishing {
+  --track: var(--vessel-fishing);
+}
+.vessel-sailing {
+  --track: var(--vessel-sailing);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.vessel-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  vector-effect: non-scaling-stroke;
+  animation: vessel-pulse 1.1s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vessel-pulse {
+    animation: none !important;
+    opacity: 0;
+  }
+}
+
+@keyframes vessel-pulse {
+  from {
+    transform: scale(0.7);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}

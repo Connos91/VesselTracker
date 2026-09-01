@@ -1,0 +1,6 @@
+# Build output and dependencies.
+dist
+node_modules
+
+# Generated: npm owns the formatting of this one.
+package-lock.json
