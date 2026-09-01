@@ -83,7 +83,6 @@ export const windNote = (wind: ApparentWind): string => {
   }
 };
 
-/** Which rule produced the engine load, said plainly under the figures. */
 export const loadRuleNote = (propulsion: PropulsionState): string => {
   switch (propulsion.kind) {
     case 'running':
