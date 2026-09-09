@@ -5,13 +5,23 @@
 .map.leaflet-container {
   background: var(--map-void);
 }
-.map .leaflet-tile-pane {
+.map .map-street-tiles {
   filter: var(--tile-filter);
 }
 .map .leaflet-bar a,
+.map .leaflet-control-layers,
 .map.leaflet-container .leaflet-control-attribution {
   background: var(--panel);
   color: var(--ink);
+}
+.map .leaflet-control-layers {
+  border-color: var(--line);
+}
+.map .leaflet-control-layers label {
+  cursor: pointer;
+}
+.map .leaflet-control-layers-selector {
+  accent-color: var(--accent);
 }
 .map .leaflet-bar a {
   border-bottom-color: var(--line);

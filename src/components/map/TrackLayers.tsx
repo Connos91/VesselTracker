@@ -1,5 +1,4 @@
 import type { LatLngTuple, PathOptions } from 'leaflet';
-import { useMemo } from 'react';
 import { CircleMarker, Polyline } from 'react-leaflet';
 import { trackRun } from '../../domain/voyage';
 import { classForVesselType } from '../vesselStyle';
@@ -16,14 +15,8 @@ const TrackLayers = ({
 }) => {
   const { vessel, voyage, sample } = playback;
   const trackClass = classForVesselType(vessel.type);
-  const routeStyle = useMemo<PathOptions>(
-    () => ({ className: `track-route ${trackClass}` }),
-    [trackClass],
-  );
-  const runStyle = useMemo<PathOptions>(
-    () => ({ className: `track-run ${trackClass}` }),
-    [trackClass],
-  );
+  const routeStyle: PathOptions = { className: `track-route ${trackClass}` };
+  const runStyle: PathOptions = { className: `track-run ${trackClass}` };
 
   return (
     <>

@@ -1,11 +1,11 @@
 import 'leaflet/dist/leaflet.css';
-import { useMemo } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer } from 'react-leaflet';
 import type { VesselId } from '../../domain/primitives';
 import type { Vessel } from '../../domain/vessel';
 import { trackRoute } from '../../domain/voyage';
 import { FitToRoute, PanToSelection } from './CameraEffects';
-import { FIT_PADDING, TILE_ATTRIBUTION, TILE_MAX_ZOOM, TILE_URL } from './constants';
+import { FIT_PADDING } from './constants';
+import MapBaseLayers from './MapBaseLayers';
 import TrackLayers from './TrackLayers';
 import type { MapPlayback } from './types';
 import { boundsForVessels, toTuple } from './utils';
@@ -27,10 +27,7 @@ const VesselMap = ({
   playback,
 }: VesselMapProps) => {
   const voyage = playback?.voyage ?? null;
-  const route = useMemo(
-    () => (voyage === null ? null : trackRoute(voyage).map(toTuple)),
-    [voyage],
-  );
+  const route = voyage === null ? null : trackRoute(voyage).map(toTuple);
 
   return (
     <MapContainer
@@ -39,7 +36,7 @@ const VesselMap = ({
       boundsOptions={{ padding: FIT_PADDING }}
       scrollWheelZoom
     >
-      <TileLayer url={TILE_URL} attribution={TILE_ATTRIBUTION} maxZoom={TILE_MAX_ZOOM} />
+      <MapBaseLayers />
 
       <FleetMarkers
         vessels={vessels}

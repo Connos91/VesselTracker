@@ -8,7 +8,6 @@ import ReadoutList from './ReadoutList';
 import { motionReadings, speedCaption } from './utils';
 import { formatBearing, formatSpeed } from '../../domain/format';
 
-/** The card, the speed over the ground, and how much of the ship's own it is. */
 const NavigationSection = ({
   vessel,
   wind,

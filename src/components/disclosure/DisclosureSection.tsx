@@ -1,13 +1,5 @@
-import type { ReactNode } from 'react';
 import { SECTION_TITLE } from '../styles';
-
-export interface DisclosureSectionProps {
-  readonly title: string;
-  readonly className: string;
-  readonly label: string | null;
-  readonly defaultOpen: boolean;
-  readonly children: ReactNode;
-}
+import type { DisclosureSectionProps } from './types';
 
 const DisclosureSection = ({
   title,

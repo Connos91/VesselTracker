@@ -46,18 +46,20 @@ const App = () => {
 
       <div className="grid min-h-0 flex-1 grid-cols-[21rem_minmax(0,1fr)_25rem] gap-px bg-line max-[68rem]:grid-cols-[minmax(0,1fr)]">
         <aside
-          className="overflow-y-auto bg-panel p-4 max-[68rem]:overflow-y-visible"
+          className="flex min-h-0 flex-col bg-panel p-4 max-[68rem]:block"
           aria-label="Vessel search and results"
         >
           <VesselFilters filters={filters} totalCount={fleet.vessels.length} />
-          <VesselList
-            vessels={filters.matches}
-            selection={selection}
-            isRaised={duressWatch.isRaisedFor}
-            isStale={filters.isStale}
-            onClearFilters={filters.clearFilters}
-            showClearFilters={filters.isFiltered}
-          />
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <VesselList
+              vessels={filters.matches}
+              selection={selection}
+              isRaised={duressWatch.isRaisedFor}
+              isStale={filters.isStale}
+              onClearFilters={filters.clearFilters}
+              showClearFilters={filters.isFiltered}
+            />
+          </div>
         </aside>
 
         <section
